@@ -1,0 +1,16 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+     app.message_service:
+         class: AppBundle\Service\MessageService
+         arguments: ["Hello World!"]
+         lazy: true
+     app.controller.default:
+         class: AppBundle\Controller\DefaultController
+         arguments: ["@app.message_service"]
